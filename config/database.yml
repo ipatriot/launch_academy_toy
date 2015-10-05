@@ -1,0 +1,22 @@
+
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: toy_development
+
+
+test:
+  <<: *default
+  database: toy_test
+
+
+production:
+  <<: *default
+  database: toy_production
+  username: toy
+  password: <%= ENV['TOY_DATABASE_PASSWORD'] %>
